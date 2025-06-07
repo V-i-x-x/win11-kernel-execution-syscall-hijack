@@ -20,6 +20,8 @@ What makes this method particularly potent is that it **bypasses multiple modern
 
 > ⚠️ **Note**: This is intended for educational and research purposes only. Unauthorized use may violate laws and policies.
 
+**It doesn’t have to be a full routine — you can hijack the syscall to jump to a kernel-mode ROP gadget and even chain multiple gadgets for advanced execution**
+
 ---
 
 ### 🧨 Offensive Applications & APT Use Cases
@@ -81,6 +83,8 @@ To accomplish this, we must:
 1. Identify the syscall number for `NtSetQuotaInformationFile`.
 2. Locate and modify the corresponding entry in the `nt!KiServiceTable`.
 3. Overcome memory protection to allow editing the read-only service table.
+
+**It doesn’t have to be a full routine — you can hijack the syscall to jump to a kernel-mode ROP gadget and even chain multiple gadgets for advanced execution**
 
 ---
 
