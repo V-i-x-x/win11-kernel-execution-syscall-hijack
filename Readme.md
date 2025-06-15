@@ -322,7 +322,7 @@ This technique effectively bypasses multiple modern kernel security mechanisms:
 
 **W^X Policies:** We never write to executable memory directly — memory remains either writable or executable, but not both.
 
-**Hypervisor-based protections & VBS:** These systems are typically focused on enforcing isolation and detecting memory tampering via VM exit analysis, which is avoided with this low-noise syscall redirection.
+**Hypervisor-based protections & VBS:** Hijacking the syscall doesn't violate HVCI because it's only read write bit we are changing or modifying in the page tables. hyperv will trust the kernel with these changes. the normal page tables will not be verified by the EPT if you change something from read to write or write to read :) => it's by design.
 
 **PatchGuard:** PatchGuard watches for modifications to critical structures. However, since this hijack is temporary and fully restored shortly after execution, it significantly lowers the risk of PatchGuard triggering a bug check.
 
